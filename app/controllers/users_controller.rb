@@ -1,15 +1,30 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource :class => User
+  include Authority::UserAbilities
   before_filter :authenticate_user!
+  ROLES = %w[admin nonprofit developer]
+  # attr_accessible :roles
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   def index
     authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
   end
-
-  def show
-    @user = User.find(params[:id])
-  end
   
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.create(params)
+
+    # NEEDS TO REDIRECT TO PAGE DEPENDING ON USER ROLE
+    redirect_to
+  end
+
   def update
     authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
