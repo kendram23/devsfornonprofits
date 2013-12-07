@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131207200748) do
+ActiveRecord::Schema.define(version: 20131207230216) do
 
   create_table "projects", force: true do |t|
     t.string   "title"
@@ -50,6 +50,20 @@ ActiveRecord::Schema.define(version: 20131207200748) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "role"
+    t.string   "company_name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "github_profile"
+    t.string   "linkedin_profile"
+    t.string   "twitter_profile"
+    t.string   "resume"
+    t.string   "picture_url"
+    t.string   "about"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
