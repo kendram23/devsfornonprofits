@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   load_and_authorize_resource :class => User
+  include Authority::UserAbilities
   before_filter :authenticate_user!
   ROLES = %w[admin nonprofit developer]
   # attr_accessible :roles

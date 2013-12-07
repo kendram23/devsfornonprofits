@@ -29,6 +29,7 @@ class Ability
 
 	def developer
 		can :read, Project
+		can :crud, User, :active => true, :user_id => user.id
 	end
 end
 

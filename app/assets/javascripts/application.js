@@ -10,8 +10,21 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+// = require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+
+// <script src="//code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+
+// $(document).on("ready", function(){
+
+// 	$("#developer_button").on("click", function(){
+//  		$("#developer_form").toggle("fast")
+//  	});
+
+//  	$("#nonprofit_button").on("click", function(){
+//  		$("#nonprofit_form").toggle("fast")
+//  	});
+//  });

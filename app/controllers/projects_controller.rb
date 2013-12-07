@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
 		load_and_authorize_resource :class => Project
+		include Authority::UserAbilities
 
 	def show
 		@project = Project.find(params[:id])

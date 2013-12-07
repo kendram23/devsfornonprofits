@@ -1,6 +1,7 @@
 Devsfornp::Application.routes.draw do
-  root :to => "home#index"
+  root "pages#welcome"
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
   resources :projects
+
 end
