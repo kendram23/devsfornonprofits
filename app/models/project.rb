@@ -17,7 +17,7 @@ class Project < ActiveRecord::Base
 		@project = Project.create(params)
 
 ########################################
-		# Need to add a redirct path based on user role!!!!
+		# Need to add a redirct path to project show page
 		redirect_to root_path
 	end
 
@@ -29,15 +29,15 @@ class Project < ActiveRecord::Base
 		@project = Project.find(params[:id])
 		@project.update(params)
 
-		# Need to add redirect route based on user type
+		# Need to add redirect route to project show page
 		redirect_to
 	end
 
 	def destroy
 		@project = Project.find(params[:id])
-		@project.update(params)
+		@project.destroy(params)
 
-		# Need to add redirect route based on user type
+		# Need to add redirect route to nonprofit home page
 		redirect_to
 	end
 end
