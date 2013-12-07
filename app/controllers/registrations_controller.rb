@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  include Authority::UserAbilities
   before_filter :update_sanitized_params, if: :devise_controller?
 
   def update_sanitized_params
