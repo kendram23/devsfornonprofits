@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-		load_and_authorize_resource
+		load_and_authorize_resource :class => Project
 
 	def show
 		@project = Project.find(params[:id])

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource :class => User
   before_filter :authenticate_user!
   ROLES = %w[admin nonprofit developer]
-  attr_accessible :roles
+  # attr_accessible :roles
 
   def show
     @user = User.find(params[:id])
