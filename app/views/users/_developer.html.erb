@@ -1,10 +1,19 @@
+<style>
+#edit_details {
+	padding:10px; 
+	margin-top:30px;
+}
+
+
+</style>
+
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-4">
 		</div>
 		<div class="col-md-4">
 			<h3 class="text-center">
-				h3. Lorem ipsum dolor sit amet.
+				About <%= @user.first_name%> <%= @user.last_name%>
 			</h3>
 		</div>
 		<div class="col-md-4">
@@ -20,37 +29,30 @@
 		</div>
 		<div class="col-md-4">
 			<p>
-				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+				<%= @user.about %>
 			</p>
 		</div>
 		<div class="col-md-1">
 		</div>
 		<div class="col-md-2">
 			<ul>
+				<%if @user.twitter_profile%>
+					<li>
+						<a href="http://twitter.com/<%= @user.twitter_profile%>"><%=@user.twitter_profile%></a>
+					</li>
+				<%end%>
+
+				<%if @user.linkedin_profile%>
 				<li>
-					<%= @user.twitter_profile%>
+					<%= @user.linkedin_profile%>
 				</li>
+				<%end%>
+
+				<%if @user.github_profile%>
 				<li>
-					<%= current_user.linkedin_profile%>
+					<a href="https://github.com/<%= current_user.github_profile%>"><%=@user.github_profile%></a>
 				</li>
-				<li>
-					<%= current_user.github_profile%>
-				</li>
-				<li>
-					Facilisis in pretium nisl aliquet
-				</li>
-				<li>
-					City: <%= current_user.city%>
-				</li>
-				<li>
-					Faucibus porta lacus fringilla vel
-				</li>
-				<li>
-					Aenean sit amet erat nunc
-				</li>
-				<li>
-					Eget porttitor lorem
-				</li>
+				<%end%>
 			</ul>
 		</div>
 		<div class="col-md-1">
@@ -68,4 +70,28 @@
 		<div class="col-md-1">
 		</div>
 	</div>
+
+	<div class="col-md-4">
+	</div>
+	<div class="col-md-4">
+		<h4 class="text-center"><%=@user.first_name%>'s Accomplishments</h4>
+		<p>
+			<%= @user.resume %>
+		</p>
+	</div>
+	<div class="col-md-4">
+	</div>
+
+	<div class="row clearfix">
+			<div class="col-md-5">
+			</div>
+			<div class="col-md-2">
+				<br />
+				<br />
+				<%= link_to "Edit Profile Details", edit_details_path %>
+			</div>
+			<div class="col-md-5">
+			</div>
+	</div>
+
 </div>

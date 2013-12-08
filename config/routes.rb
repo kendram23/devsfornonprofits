@@ -6,4 +6,5 @@ Devsfornp::Application.routes.draw do
   get 'about' => 'pages#about', as: 'about'
   get 'team'  => 'pages#team', as: 'team'
   get 'my_projects' => 'projects#my_projects', as: 'my_projects'
+  get 'edit_details' => 'users#edit_details', as: 'edit_details'
 end
