@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.create(params)
 
     # NEEDS TO REDIRECT TO PAGE DEPENDING ON USER ROLE
-    redirect_to
+    # 
   end
 
   def update
@@ -43,5 +43,9 @@ class UsersController < ApplicationController
     else
       redirect_to users_path, :notice => "Can't delete yourself."
     end
+  end
+
+  def confirmed?
+    @user.confirmed?
   end
 end

@@ -1,7 +1,7 @@
 <h1>Current Available Projects</h1>
 
 <% @projects.each do |project| %>
-	<%= link_to project.title, project_path(@project) %>
+	<%= link_to project.title, project_path(project[:id]) %>
 	<%= project.description %>
 	<%= project.user.company_name %>
 <% end %>

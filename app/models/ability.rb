@@ -4,8 +4,8 @@ class Ability
     def initialize(user)
         user ||= User.new # guest user -- not logged in
         
-        if user.role? :admin
-            can: manage, :all?
+        if user.role == 'admin'
+            can :manage, :all
         end
 
         alias_action :create, :read, :update, :destroy, :to=> :crud
@@ -15,18 +15,17 @@ class Ability
         # Nonprofits can manage all CRUD actions
         # Active - sets CRUD actions to only active projects of that user
 
-        if user.role? "developer"
+        if user.role == "developer"
             can :read, Project
-            can :crud, User, :active => true, :user_id => user.id
+            can :crud, User, :id => user.id
         end
 
         if user.role == 'nonprofit'
-            can :crud, Project, :active => true, :user_id => user.id
-            can :crud, User, :active => true, :user_id => user.id
+            can :crud, Project, :id => user.id
+            can :crud, User, :id => user.id
         end
 
         # Using CRUD alias for nonprofit user
     end
 
 end
-

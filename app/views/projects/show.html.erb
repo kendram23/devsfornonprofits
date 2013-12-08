@@ -1,32 +1,12 @@
-<h1><%= @user.name %></h1>
+<h1><%= @project.title %></h1>
 
-<%= @user.picture_url %>
-</br>
-
-<%= @user.about %>
-
-</br>
-
-<%= @user.github_profile %>
-
-</br>
-
-<%= @user.linkedin_profile %>
-</br>
-
-<%= @user.twitter_profile %>
-
-</br>
-
-</br>
-
-</br>
 
 <p>
-<% if can? :update, @project %>
+
+<% if current_user.role == 'nonprofit' %>
 	<%= link_to "Edit", edit_project_path(@project) %>
 <% end %>
-<% if can? :destroy, @project %>
+<% if current_user.role == 'nonprofit' %>
 	<%= link_to "Delete", @project, :method => :delete, :confirm => "Are you sure you want to delete this project? This action can not be undone." %>
 <% end %>
 <%= link_to "Back to Projects", projects_path %>
