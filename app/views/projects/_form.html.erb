@@ -1,0 +1,19 @@
+<%= form_for @project do |f| %> 
+
+  <div><%= f.label 'Project Title' %><br />
+  <%= f.text_field :title %></div>
+
+  <div><%= f.label 'Describe the project' %><br />
+  <%= f.text_field :description %></div>
+
+  <div><%= f.label 'Project Requirement' %><br />
+  <%= f.text_field :requirements %></div>
+
+  <div><%= f.label 'Project Category' %><br />
+  	<%= f.text_field :category %></div>
+
+	<div><%= f.label 'Project Deadline' %><br />
+<%= f.text_field :project_deadline %></div>
+
+  <div><%= f.submit "Create Project" %></div>
+<% end %>

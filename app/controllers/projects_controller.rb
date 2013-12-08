@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
 ########################################
 		# Need to add a redirct path to project show page
-		redirect_to root_path
+		redirect_to @project
 	end
 
 	def edit
@@ -27,10 +27,10 @@ class ProjectsController < ApplicationController
 
 	def update
 		@project = Project.find(params[:id])
-		@project.update(params)
+		@project.update(projects_params)
 
 		# Need to add redirect route to project show page
-		redirect_to
+		redirect_to @project
 	end
 
 	def destroy
@@ -38,7 +38,10 @@ class ProjectsController < ApplicationController
 		@project.destroy(params)
 
 		# Need to add redirect route to nonprofit home page
-		redirect_to
+		redirect_to @projects
+	end
+
+	def apply_for_project
 	end
 
 	private
