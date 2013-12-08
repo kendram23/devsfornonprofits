@@ -1,21 +1,32 @@
 <h1>Available Projects</h1>
 
-<button><% if current_user.role == 'nonprofit' %>
-	<%= link_to 'Create New Project', new_project_path %>
+<% if current_user.role == 'nonprofit' %>
+	<button><%= link_to 'Create New Project', new_project_path %></button>
 <% end %>
-</button>
+
 </br>
 
 	<%= will_paginate @projects %>
 
 	<% @projects.each do |project| %>
-	<div>
-	<%= link_to project.title, project_path(project[:id]) %>
-	<%= project.description %>
-	<%= project.category %>
+	<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-8 column">
+			<h3><%= link_to project.title, project_path(project[:id]) %></h3>
+			<p><%= project.description %></p>
+			<p><%= project.category %><p>
+			<button type="button" class="btn btn-default"><%= link_to 'Read More', project_path(project[:id]) %></button>
+		</div>
+		<div class="col-md-2 column">
+		</div>
 	</div>
+</div>
 	<% end %>
 
 	<%= will_paginate @projects %>
+		
+			
 
 

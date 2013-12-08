@@ -1,10 +1,10 @@
+<% if current_user.role == 'nonprofit' %>
 <h1><%= current_user.company_name %>'s Projects</h1>
-
-	<%= will_paginate @projects %>
+	<%= will_paginate @my_projects %>
 
 <div>
 
-	<% @projects.each do |project| %>
+	<% @my_projects.each do |project| %>
 	<% if current_user.id == project.user_id %>
 		<%= link_to project.title, project_path(project[:id]) %>
 		<%= project.description %>
@@ -15,11 +15,22 @@
 	<% end %>
 	<% end %>
 
-	<%= will_paginate @projects %>
+	<%= will_paginate @my_projects %>
 
-	<% if current_user.role == 'nonprofit' %>
+	<% if current_user.role == 'developer' %>
 	<%= link_to 'Create New Project', new_project_path %>
 <% end %>
+
+<% else %>
+<h1><%= current_user.name %></h1>
+
+
+
+
+
+<% end %>
+
+
 
 
 

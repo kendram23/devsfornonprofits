@@ -11,13 +11,13 @@ class ProjectsController < ApplicationController
 		@projects = Project.paginate(:page => params[:page], :per_page => 10)
 	end
 
-	# def my_projects
-	# 	if current_user
-	# 		@projects = project = Project.paginate(:page => params[:page], :per_page => 5)
-	# 	else
-	# 		redirect_to root_path
-	# 	end
-	# end
+	def my_projects
+		if current_user
+			@my_projects = project = Project.paginate(:page => params[:page], :per_page => 5)
+		else
+			redirect_to root_path
+		end
+	end
 
 	def new
 		@project = Project.new
