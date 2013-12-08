@@ -7,7 +7,7 @@
   <li><%= link_to "Sign in", new_user_session_path%></li>
 <% end %>
 <% if user_signed_in? %>
-  <% if current_user.has_role? :admin %>
+  <% if current_user.role == 'admin' %>
     <li><%= link_to 'Admin', users_path %></li>
   <% end %>
 <% end %>

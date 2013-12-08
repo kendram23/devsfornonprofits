@@ -11,6 +11,13 @@ img {
   font-size: inherit;
   }
 
+ * {
+     border: 1px solid red;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
 
 
 //Nav Styles
@@ -57,5 +64,22 @@ section {
   margin-top: 20px;
   }
 
+
+/*footer*/
+
+footer {
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer_name {
+  display: inline-block;
+}
+
+#footer_nav {
+  display: inline-block;
+}
 
 

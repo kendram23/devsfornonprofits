@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
 
 	def new
 		@project = Project.new
+		@project.user_id= params[:user_id]
 	end
 
 	def create
@@ -36,10 +37,10 @@ class ProjectsController < ApplicationController
 
 	def destroy
 		@project = Project.find(params[:id])
-		@project.destroy(params)
+		@project.destroy
 
 		# Need to add redirect route to nonprofit home page
-		redirect_to @projects
+		redirect_to projects_path
 	end
 
 	def apply_for_project
