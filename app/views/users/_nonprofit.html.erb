@@ -1,1 +1,90 @@
-Nonprofit!
+<style>
+#edit_details {
+	padding:10px; 
+	margin-top:30px;
+}
+
+
+</style>
+
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-4">
+		</div>
+		<div class="col-md-4">
+			<h2 class="text-center">
+				About <%= @user.company_name%>
+			</h2>
+			<h4 class="text-center"><%= @user.city%>, <%= @user.state%></h4>
+			<h6 class="text-center"><%= @user.phone%></h6><br />
+
+		</div>
+		<div class="col-md-4">
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-2">
+			<img alt="140x140" src="<%= current_user.picture_url %>" />
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-4">
+			<p>
+				<%= @user.about %>
+			</p>
+		</div>
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-2">
+			<ul>
+				<%if @user.twitter_profile%>
+					<li>
+						<a href="http://twitter.com/<%= @user.twitter_profile%>"><%=@user.twitter_profile%></a>
+					</li>
+				<%end%>
+
+				<%if @user.linkedin_profile%>
+				<li>
+					<%= @user.linkedin_profile%>
+				</li>
+				<%end%>
+			</ul>
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-6">
+		</div>
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-1">
+		</div>
+	</div>
+
+	<div class="col-md-4">
+	</div>
+	<div class="col-md-4">
+	</div>
+	<div class="col-md-4">
+	</div>
+
+	<div class="row clearfix">
+			<div class="col-md-5">
+			</div>
+			<div class="col-md-2">
+				<br />
+				<br />
+				<%= link_to "Edit Profile Details", edit_details_path %>
+			</div>
+			<div class="col-md-5">
+			</div>
+	</div>
+
+</div>

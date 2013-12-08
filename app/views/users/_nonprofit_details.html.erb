@@ -1,21 +1,35 @@
-<%= form_for current_user do |f| %> 
+<%= form_for @user do |f| %> 
 
-  <div><%= f.label 'Project Title' %><br />
-       <%= f.text_field :title, size: '40x1' %></div>
+  <div><%= f.label 'Company Name' %><br />
+       <%= f.text_field :company_name, size: '30x1' %></div>
 
-  <div><%= f.label 'Describe the project' %><br />
-       <%= f.text_area :description, size: "60x4" %></div>
+  <div><%= f.label 'Github' %><br />
+       <%= f.text_field :github_profile, size: "30x1" %></div>
 
-  <div><%= f.label 'Project Requirement' %><br />
-       <%= f.text_area :requirements, size: "60x4" %></div>
+  <div><%= f.label 'Linkedin' %><br />
+       <%= f.text_field :linkedin_profile, size: "30x1" %></div>
 
-  <div><%= f.label 'Project Category' %><br />
-  	   <%= f.select :category, options_for_select('Website', 'Mobile App') %></div>
+  <div><%= f.label 'Twitter' %><br />
+       <%= f.text_field :twitter_profile, size: "30x1" %></div>
 
-	<div><%= f.label 'Project Deadline' %><br />
-       <%= f.date_field :project_deadline %></div>
+  <div><%= f.label 'Logo URL' %><br />
+       <%= f.text_field :picture_url, size: "30x1" %></div>
 
-       <%= f.hidden_field :user_id, :value => current_user.id %>
+  <div><%= f.label 'About' %><br />
+       <%= f.text_area :about, size: "60x6" %></div>
+
+  <div><%= f.label 'City' %><br />
+       <%= f.text_field :city, size: "30x1" %></div>
+
+  <div><%= f.label 'State' %><br />
+       <%= f.text_field :state, size: "30x1" %></div>
+
+  <div><%= f.label 'Zipcode' %><br />
+       <%= f.text_field :zipcode, size: "30x1" %></div>
+
+  <div><%= f.label 'Phone' %><br />
+       <%= f.text_field :phone, size: "30x1" %></div>
+
   <div>
     <%= f.submit "Submit" %></div>
 <% end %>
