@@ -21,17 +21,6 @@
 <p>
 
 
-<h1> Apply for: <%= @project.title %></h1>
-
-<p>Nulla hizzle ligula. Mammasay mammasa mamma oo sa porta commodo tellus. Aenean viverra, stuff izzle away black, libero shizzlin dizzle owned leo, non check it out nunc sapien shit nunc. Tellivizzle eu go to hizzle. Vestibulum break it down izzle. Sed elementizzle i'm in the shizzle eros. Stuff nulla things, i'm in the shizzle izzle, volutpizzle mofo, auctor egizzle, nunc. Mammasay mammasa mamma oo sa stuff. My shizz nisi. My shizz gizzle amizzle leo nec ante blandit dignissizzle. Fizzle laorizzle shizzlin dizzle sizzle fo shizzle enim. Black you son of a bizzle sure felizzle.</p>
-
-<% form_for ([@project, @project.current_projects.build]) do |f| %> 
-
-       <%= f.hidden_field :user_id, :value => 
-       current_user.id %>
-       <%= f.hidden_field :project_id, :value => @project.id %>
-  <div>
-    <%= f.submit "Submit" %></div>
-<% end %>
+<% 
 
 
