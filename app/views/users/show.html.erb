@@ -1,11 +1,18 @@
-<% if current_user.role == "developer"%>
-	<%= render "developer" %>
-<% elsif current_user.role == "admin"%>
-	<%= render "admin" %>
-<% elsif current_user.role == "nonprofit"%>
-	<%= render "nonprofit" %>
+<% if current_user%>
+	
+	<% if current_user.role == "developer"%>
+		<%= render "developer" %>
+	<% elsif current_user.role == "admin"%>
+		<%= render "admin" %>
+	<% elsif current_user.role == "nonprofit"%>
+		<%= render "nonprofit" %>
+	<% else %>
+		<%= render "cannot_access" %>
+	<% end %>
 <% else %>
-	<%= render "cannot_access" %>
-<% end %>
+<%= render "mustlogin"%>
+<% end%>
+
+
 
 
