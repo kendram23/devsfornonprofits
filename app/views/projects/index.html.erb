@@ -8,7 +8,12 @@
 	<div>
 	<%= link_to project.title, project_path(project[:id]) %>
 	<%= project.description %>
+	<%= project.category %>
 	</div>
-<% end %>
+	<% end %>
+
+	<%= will_paginate @projects %>
+
+
 
 

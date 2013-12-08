@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
 		# load_and_authorize_resource
+		require 'will_paginate/array'
 
 	def show
 		@project = Project.find(params[:id])
 	end
 
 	def index
-		@projects = Project.all
+		@projects = Project.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def new
