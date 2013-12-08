@@ -1,7 +1,6 @@
-<%= form_for @project do |f| %> 
+<p>Applying for <%= link_to project.title, project_path %></p>
 
-  <div><%= f.label 'Project Title' %><br />
-       <%= f.text_field :title, size: '40x1' %></div>
+<%= form_for @project do |f| %> 
 
   <div><%= f.label 'Describe the project' %><br />
        <%= f.text_area :description, size: "60x4" %></div>

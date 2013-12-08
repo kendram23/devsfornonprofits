@@ -1,25 +1,43 @@
+<% if current_user.role == 'nonprofit' %>
 <h1><%= current_user.company_name %>'s Projects</h1>
 
-	<%= will_paginate @projects %>
+<button><%= link_to 'Create New Project', new_project_path %></button>
 
-<div>
+	<%= will_paginate @my_projects %>
 
-	<% @projects.each do |project| %>
+
+	<% @my_projects.each do |project| %>
+	<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-2 column">
+		</div>
+		<div class="col-md-8 column">
 	<% if current_user.id == project.user_id %>
-		<%= link_to project.title, project_path(project[:id]) %>
-		<%= project.description %>
-		<%= project.category %>
+		<h3><%= link_to project.title, project_path(project[:id]) %></h3>
+		<p><%= project.description %></p>
+		<p><%= project.category %></p>
+		<button type="button" class="btn btn-default"><%= link_to 'Read More', project_path(project[:id]) %></button>
+		</div>
+		<div class="col-md-2 column"></div>
 	<% else %>
-		<%= puts "You don't have any open projects. Create one!" %>
+		<p><%= puts "You don't have any open projects. Create one!" %><p>
+	<% end %>
+	<% end %>
 	</div>
-	<% end %>
-	<% end %>
+</div>
 
-	<%= will_paginate @projects %>
+	<%= will_paginate @my_projects %>
 
-	<% if current_user.role == 'nonprofit' %>
-	<%= link_to 'Create New Project', new_project_path %>
 <% end %>
+	<% if current_user.role == 'developer' %>
+
+
+	<h1><%= current_user.name %></h1>
+
+
+<% end %>
+
+
 
 
 
