@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
 	end
 
 	def create
-		@project = Project.create(params)
+		@project = Project.create(projects_params)
 
 ########################################
 		# Need to add a redirct path to project show page
@@ -39,6 +39,12 @@ class ProjectsController < ApplicationController
 
 		# Need to add redirect route to nonprofit home page
 		redirect_to
+	end
+
+	private
+
+	def projects_params
+		params.require(:project).permit(:title, :describe, :project_requirement, :category, :project_deadline)
 	end
 
 end

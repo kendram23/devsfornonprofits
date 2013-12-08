@@ -1,3 +1,4 @@
+<% if current_user.role == 'nonprofit' %>
 <h1>New Project</h1>
 
 <%= form_for @project do |f| %> 
@@ -6,14 +7,22 @@
   <%= f.text_field :title %></div>
 
   <div><%= f.label 'Describe the project' %><br />
-  <%= f.email_field :email %></div>
+  <%= f.text_field :description %></div>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <div><%= f.label 'Project Requirement' %><br />
+  <%= f.text_field :requirements %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-  <%= f.hidden_field :role, :value => "developer" %>
+  <div><%= f.label 'Project Category' %><br />
+  	<%= f.text_field :category %></div>
 
-  <div><%= f.submit "Sign up" %></div>
+	<div><%= f.label 'Project Deadline' %><br />
+<%= f.text_field :project_deadline %></div>
+
+  <div><%= f.submit "Create Project" %></div>
 <% end %>
+
+<% else %>
+<p>Can't create a new project</p>
+
+<% end %>
+
