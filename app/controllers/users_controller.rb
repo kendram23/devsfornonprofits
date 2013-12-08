@@ -25,14 +25,14 @@ class UsersController < ApplicationController
     # 
   end
 
+  def edit_details
+    @user = current_user
+  end
+
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user], :as => :admin)
-      redirect_to users_path, :notice => "User updated."
-    else
-      redirect_to users_path, :alert => "Unable to update user."
-    end
+    @user.update(user_params)
+      redirect_to @user, :notice => "Settings Saved!"
   end
     
   def destroy
@@ -51,6 +51,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :github_profile, :twitter_profile, :linkedin_profile, :resume, :about, :picture_url)
+  end
+
 
   def require_login
     unless current_user

@@ -1,0 +1,29 @@
+<%= form_for @user do |f| %> 
+
+  <div><%= f.label 'First Name' %><br />
+       <%= f.text_field :first_name, size: '30x1' %></div>
+
+  <div><%= f.label 'Last Name' %><br />
+       <%= f.text_field :last_name, size: "30x1" %></div>
+
+  <div><%= f.label 'Github' %><br />
+       <%= f.text_field :github_profile, size: "30x1" %></div>
+
+  <div><%= f.label 'Linkedin' %><br />
+  	   <%= f.text_field :linkedin_profile, size: "30x1" %></div>
+
+	<div><%= f.label 'Twitter' %><br />
+       <%= f.text_field :twitter_profile, size: "30x1" %></div>
+
+  <div><%= f.label 'Resume' %><br />
+       <%= f.text_area :resume, size: "60x6" %></div>
+
+  <div><%= f.label 'Picture URL' %><br />
+       <%= f.text_field :picture_url, size: "30x1" %></div>
+
+  <div><%= f.label 'About' %><br />
+       <%= f.text_area :about, size: "60x6" %></div>
+
+  <div>
+    <%= f.submit "Submit" %></div>
+<% end %>
