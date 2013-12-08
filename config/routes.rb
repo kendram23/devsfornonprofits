@@ -7,4 +7,5 @@ Devsfornp::Application.routes.draw do
   get 'team'  => 'pages#team', as: 'team'
   get 'my_projects' => 'projects#my_projects', as: 'my_projects'
   get 'projects/:id/apply'       => 'projects#apply_form',   as: 'apply'
+  get '/current_projects'        => 'current_projects#show', as: 'current_project'
 end

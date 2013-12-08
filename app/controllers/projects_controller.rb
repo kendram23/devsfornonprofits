@@ -37,8 +37,6 @@ class ProjectsController < ApplicationController
 	def update
 		@project = Project.find(params[:id])
 		@project.update(projects_params)
-
-		# Need to add redirect route to project show page
 		redirect_to @project
 	end
 
@@ -50,7 +48,8 @@ class ProjectsController < ApplicationController
 		redirect_to projects_path
 	end
 
-	def apply_for_project
+	def apply_form
+		@project = Project.find(params[:id])
 	end
 
 	private
