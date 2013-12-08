@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource :class => User
-  include Authority::UserAbilities
+  load_and_authorize_resource
   before_filter :authenticate_user!
   ROLES = %w[admin nonprofit developer]
   # attr_accessible :roles
@@ -10,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
+    # authorize! :index, @user, :message => 'Not authorized as an administrator.'
     @users = User.all
   end
   
