@@ -1,9 +1,9 @@
 <h1><%= @project.title %></h1>
-<h2>Posted By: <%= link_to current_user.company_name, "#" %></h2>
-<p><%= @project.description %></p>
-<p><%= @project.requirements %></p>
-<p><%= @project.project_deadline %></p>
-<p><%= @project.category %></p>
+<h3>Posted By: <%= link_to current_user.company_name, user_path %></h3>
+<p>Project Description: <%= @project.description %></p>
+<p>Project Requirements: <%= @project.requirements %></p>
+<p>Project Deadline: <%= @project.project_deadline %></p>
+<p>Project Category: <%= @project.category %></p>
 
 <p>
 
@@ -20,7 +20,13 @@
 <%= link_to "Back to Projects", projects_path %>
 <p>
 
+<% if current_user.role == 'nonprofit' %>
 
-<% 
-
-
+</br>
+<h3>Current Applicant's</h3>
+	<p><% @project.list_current_projects.each do |project| %>
+		<% if project.project_id == @project.id %>
+			<%= link_to project.user.name, user_path(project.user_id) %></p>
+		<% end %>
+	<% end %>
+<% end %>

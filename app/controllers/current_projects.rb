@@ -5,7 +5,7 @@ class CurrentProjectsController < ApplicationController
   end
 
   def index
-  	@currentprojects = CurrentProject.all?
+  	@currentprojects = CurrentProject.all
   end
 
   def new
