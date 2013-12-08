@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
-  before_filter :authenticate_user!
-  ROLES = %w[admin nonprofit developer]
+  # load_and_authorize_resource
+  # before_filter :authenticate_user!
+  # ROLES = %w[admin nonprofit developer]
   # attr_accessible :roles
 
   def show
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def confirmed?
-    @user.confirmed?
+  def role
+    @role = current_user.role
   end
 end

@@ -1,7 +1,15 @@
 <h1>Current Available Projects</h1>
 
-<% @projects.each do |project| %>
+<% if current_user.role == 'nonprofit' %>
+	<%= link_to 'Create New Project', new_project_path %>
+<% end %>
+
+	<% @projects.each do |project| %>
+	<div>
 	<%= link_to project.title, project_path(project[:id]) %>
 	<%= project.description %>
 	<%= project.user.company_name %>
+	</div>
 <% end %>
+
+
