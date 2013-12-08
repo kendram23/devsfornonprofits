@@ -16,6 +16,10 @@ $(document).on("ready", function(){
 
 <style>
 
+#heart {
+	color: #A3456A;
+}
+
 html { 
 	background-image: url('http://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Makati_Skyline_view_from_EcoPlaza_Bldg.jpg/1280px-Makati_Skyline_view_from_EcoPlaza_Bldg.jpg'); 
 	background-repeat: no-repeat;
@@ -26,6 +30,23 @@ html {
   background-size: cover;
 }
 
+.btn-custom {
+  background-color: hsl(156, 65%, 40%) ;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#23a873", endColorstr="#23a873");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#23a873), to(#23a873));
+  background-image: -moz-linear-gradient(top, #23a873, #23a873);
+  background-image: -ms-linear-gradient(top, #23a873, #23a873);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #23a873), color-stop(100%, #23a873));
+  background-image: -webkit-linear-gradient(top, #23a873, #23a873);
+  background-image: -o-linear-gradient(top, #23a873, #23a873);
+  background-image: linear-gradient(#23a873, #23a873);
+  border-color: #23a873 #23a873 hsl(156, 65%, 40%);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.00);
+  -webkit-font-smoothing: antialiased;
+}
+
 h1 {
 	color: darkslategrey;
 
@@ -34,20 +55,9 @@ h1 {
 p {
 	color: darkslategrey;
 	font-family: arial;
-	font-size: 1.5em;
+	font-size: 1.7em;
 }
 
-/*button {
-	color: #225e79;
-}
-button:hover {
-	color: #660bab;
-}*/
-
-/*.col-lg-12 {
-	background-color: rgba(0, 0, 0, 0.3);
-	background: rgba(0, 0, 0, 0.3);
-}*/
 
 </style>
 
@@ -57,7 +67,7 @@ button:hover {
 	<div class="row clearfix">
 		<div class="col-md-12">
 			<h1 class="text-center">
-				Developers ♥ to help
+				Developers <span id="heart">♥</span> to Help
 			</h1>
 			<br />
 			<div class="row clearfix">
@@ -72,6 +82,7 @@ button:hover {
 						<br />
 						<!-- <h3 class="text-center">Ready to get started?</h3> -->
 						<br />
+						<br />
 						
 					</p>
 				</div>
@@ -82,12 +93,12 @@ button:hover {
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-3">
-					 <button type="button" id="developer_button"class="btn btn-lg btn-block">I'm a Developer</button>
+					 <button type="button" id="developer_button"class="btn-custom btn-lg btn-block">I'm a Developer</button>
 				</div>
 				<div class="col-md-2">
 				</div>
 				<div class="col-md-3">
-					 <button type="button" id="nonprofit_button" class="btn btn-lg btn-block">We're a Nonprofit</button>
+					 <button type="button" id="nonprofit_button" class="btn-custom btn-lg btn-block">We're a Nonprofit</button>
 				</div>
 				<div class="col-md-2">
 				</div>
