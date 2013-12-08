@@ -10,6 +10,17 @@ class ProjectsController < ApplicationController
 		@projects = Project.paginate(:page => params[:page], :per_page => 5)
 	end
 
+	def my_projects
+		@projects = project = Project.paginate(:page => params[:page], :per_page => 5)
+		# @projects.each do |project|
+		# 	if current_user.id == project.user_id
+		# 			puts project
+		# 	else
+		# 		puts "You don't have any open projects. Create one!"
+		# 	end
+		# end
+	end
+
 	def new
 		@project = Project.new
 		@project.user_id= params[:user_id]

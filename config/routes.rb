@@ -5,4 +5,5 @@ Devsfornp::Application.routes.draw do
   resources :users
   get 'about' => 'pages#about', as: 'about'
   get 'team'  => 'pages#team', as: 'team'
+  get 'my_projects' => 'projects#my_projects', as: 'my_projects'
 end

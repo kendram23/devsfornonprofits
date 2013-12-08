@@ -1,0 +1,26 @@
+<h1><%= current_user.company_name %>'s Projects</h1>
+
+	<%= will_paginate @projects %>
+
+<div>
+
+	<% @projects.each do |project| %>
+	<% if current_user.id == project.user_id %>
+		<%= link_to project.title, project_path(project[:id]) %>
+		<%= project.description %>
+		<%= project.category %>
+	<% else %>
+		<%= puts "You don't have any open projects. Create one!" %>
+	</div>
+	<% end %>
+	<% end %>
+
+	<%= will_paginate @projects %>
+
+	<% if current_user.role == 'nonprofit' %>
+	<%= link_to 'Create New Project', new_project_path %>
+<% end %>
+
+
+
+
