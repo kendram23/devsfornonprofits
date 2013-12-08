@@ -3,6 +3,9 @@
 <% elsif current_user.role == "admin"%>
 	<%= render "admin" %>
 <% elsif current_user.role == "nonprofit"%>
+	<%= render "nonprofit" %>
 <% else %>
-	<%= render cannot_access %>
+	<%= render "cannot_access" %>
 <% end %>
+
+
