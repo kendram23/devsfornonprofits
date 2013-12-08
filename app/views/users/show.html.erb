@@ -1,3 +1,8 @@
-<h3>User</h3>
-<p>User: <%= @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<% if current_user.role == "developer"%>
+	<%= render "developer" %>
+<% elsif current_user.role == "admin"%>
+	<%= render "admin" %>
+<% elsif current_user.role == "nonprofit"%>
+<% else %>
+	<%= render cannot_access %>
+<% end %>
