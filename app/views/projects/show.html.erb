@@ -1,3 +1,4 @@
+<% if user_signed_in? %>
 <h1><%= @project.title %></h1>
 <h2>Posted By: <%= link_to current_user.company_name, "#" %></h2>
 <p><%= @project.description %></p>
@@ -19,4 +20,7 @@
 	<% end %>
 <%= link_to "Back to Projects", projects_path %>
 <p>
+<% else %>
+	redirect_to root
+<% end %>
 

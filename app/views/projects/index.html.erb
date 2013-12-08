@@ -1,8 +1,10 @@
-<h1>Current Available Projects</h1>
+<h1>Available Projects</h1>
 
-<% if current_user.role == 'nonprofit' %>
+<button><% if current_user.role == 'nonprofit' %>
 	<%= link_to 'Create New Project', new_project_path %>
 <% end %>
+</button>
+</br>
 
 	<%= will_paginate @projects %>
 
@@ -15,7 +17,5 @@
 	<% end %>
 
 	<%= will_paginate @projects %>
-
-
 
 
