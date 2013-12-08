@@ -1,21 +1,18 @@
 <%# add navigation links to this file %>
 <% if user_signed_in? %>
 	<% if current_user.role == "developer" %>
-  		<li><%= link_to 'Home', user_path(current_user.id) %></li>
 	  	<li><%= link_to 'Edit account', edit_user_registration_path %></li>
 	  	<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
 	  	<li><%= link_to 'All Projects', projects_path %></li>
 	  	<li><%= link_to 'My Projects', my_projects_path %></li>
 
 	<% elsif current_user.role == "nonprofit"%>
-		<li><%= link_to 'Home', user_path(current_user.id) %></li>
 		<li><%= link_to 'Edit account', edit_user_registration_path %></li>
 		<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
 		<li><%= link_to 'All Projects', projects_path %></li>
 	  	<li><%= link_to 'My Projects', my_projects_path %></li>
 
 	<% elsif current_user.role == "admin"%>
-		<li><%= link_to 'Home', user_path(current_user.id) %></li>
 		<li><%= link_to 'Edit account', edit_user_registration_path %></li>
 		<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
 		<li><%= link_to 'All Projects', projects_path %></li>
