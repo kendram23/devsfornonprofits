@@ -10,4 +10,8 @@ class Project < ActiveRecord::Base
 			end
 		end
 	end
+
+	def list_current_projects
+		@current_projects = CurrentProject.all
+	end
 end
