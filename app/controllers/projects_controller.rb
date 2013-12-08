@@ -1,25 +1,23 @@
 class ProjectsController < ApplicationController
 		# load_and_authorize_resource
-		require 'will_paginate/array'
+	require 'will_paginate/array'
+	before_filter :require_login
 
 	def show
 		@project = Project.find(params[:id])
 	end
 
 	def index
-		@projects = Project.paginate(:page => params[:page], :per_page => 5)
+		@projects = Project.paginate(:page => params[:page], :per_page => 10)
 	end
 
-	def my_projects
-		@projects = project = Project.paginate(:page => params[:page], :per_page => 5)
-		# @projects.each do |project|
-		# 	if current_user.id == project.user_id
-		# 			puts project
-		# 	else
-		# 		puts "You don't have any open projects. Create one!"
-		# 	end
-		# end
-	end
+	# def my_projects
+	# 	if current_user
+	# 		@projects = project = Project.paginate(:page => params[:page], :per_page => 5)
+	# 	else
+	# 		redirect_to root_path
+	# 	end
+	# end
 
 	def new
 		@project = Project.new
@@ -29,8 +27,6 @@ class ProjectsController < ApplicationController
 	def create
 		@project = Project.create(projects_params)
 
-########################################
-		# Need to add a redirct path to project show page
 		redirect_to @project
 	end
 
@@ -59,8 +55,14 @@ class ProjectsController < ApplicationController
 
 	private
 
-	def projects_params
-		params.require(:project).permit(:title, :describe, :project_requirement, :category, :project_deadline, :user_id)
-	end
+		def projects_params
+			params.require(:project).permit(:title, :describe, :project_requirement, :category, :project_deadline, :user_id)
+		end
+
+    def require_login
+      unless current_user
+        redirect_to root_path
+      end
+    end
 
 end
